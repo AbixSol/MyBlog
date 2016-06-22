@@ -1,16 +1,15 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-
 # Create your models here.
 
 SHORT_TEXT_LEN = 1000
+
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     user = models.ForeignKey(User)
-
 
     def __str__(self):
         return self.title

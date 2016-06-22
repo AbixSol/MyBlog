@@ -18,6 +18,6 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
                        url(r'^$', 'Blog.views.home', name='home'),
-                       url(r'^about/$','Blog.views.about',name='about'),
-                       url(r'^articles/(?P<article_id>[0-9]+)/$','Blog.views.show_article', name = 'article')
-                      )
+                       url(r'^about/$', 'Blog.views.about', name='about'),
+                       url(r'^articles/(?P<article_id>[0-9]+)/$', 'Blog.views.show_article', name='article')
+                       )
