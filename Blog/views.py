@@ -3,6 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render_to_response
 
 from Blog.models import Article
+from .forms import PostForm
+
 
 
 def home(request):
@@ -23,3 +25,8 @@ def show_article(request, article_id):
 
 def tetas(request):
     return render(request, 'blog/tetas.html')
+
+
+def post_new(request):
+    form = PostForm()
+    return render(request, 'blog/post_edit.html', {'form': form})
