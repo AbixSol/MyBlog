@@ -21,3 +21,5 @@ def show_article(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     return render(request, 'blog/article.html', {'article': article})
 
+def tetas(request):
+    return render(request, 'blog/tetas.html')
