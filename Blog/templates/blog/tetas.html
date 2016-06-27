@@ -1,15 +1,15 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-
-About
+    Home
 {% endblock %}
+
+
 
 {% block content %}
-
-<h1> About </h1>
-
-<p> &copy; Toca te la teta</p>
-
+    <h1>New post</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
 {% endblock %}
-

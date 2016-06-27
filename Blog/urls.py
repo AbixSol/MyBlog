@@ -19,7 +19,7 @@ from Blog.views import home, about, show_article, tetas ,post_new
 urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^about/$', about, name='about'),
-    url(r'^post/new/$',post_new, name='post_new'),
+    url(r'^post/$',post_new, name='post_new'),
     url(r'^tetas/$', tetas, name='tetas'),
     url(r'^articles/(?P<article_id>[0-9]+)/$', show_article, name='article')
 
