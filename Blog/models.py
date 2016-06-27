@@ -9,7 +9,11 @@ SHORT_TEXT_LEN = 1000
 class Article(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, null=True)
+
+    class Meta:
+        ordering = ['-date', ]
 
     def __str__(self):
         return self.title
