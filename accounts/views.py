@@ -5,8 +5,11 @@ from django.core.urlresolvers import reverse
 
 from .forms import RegistroUserForm
 from .models import UserProfile
-from django.contrib.auth import authenticate, login
+
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
 
 def registro_usuario_view(request):
     if request.method == 'POST':
@@ -54,6 +57,7 @@ def registro_usuario_view(request):
 def gracias_view(request, username):
     return render(request, 'accounts/gracias.html', {'username': username})
 
+
 @login_required
 def index_view(request):
     return render(request, 'accounts/index.html')
@@ -80,3 +84,8 @@ def login_view(request):
         mensaje = 'Nombre de usuario o contraseña no valido'
     return render(request, 'accounts/login.html', {'mensaje': mensaje})
 
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Te has desconectado con exito.')
+    return redirect(reverse('accounts.login'))
