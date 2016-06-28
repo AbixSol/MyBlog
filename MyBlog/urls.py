@@ -15,9 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import patterns, url, include
 from django.contrib import admin
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('Blog.urls')),
     url(r'^accounts/', include('accounts.urls')),
 ]
+# Añade esto, al final del documento
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns.append(
+        # /media/:<mixed>path/
+        url(
+            regex=r'^media/(?P<path>.*)$',
+            view='django.views.static.serve',
+            kwargs={'document_root': settings.MEDIA_ROOT}))
