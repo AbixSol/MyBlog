@@ -27,9 +27,6 @@ def show_article(request, article_id):
     return render(request, 'blog/article.html', {'article': article})
 
 
-def tetas(request):
-    return render(request, 'blog/tetas.html')
-
 
 def post_new(request):
     if request.method == "POST":
