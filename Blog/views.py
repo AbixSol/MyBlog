@@ -21,6 +21,8 @@ def home(request):
 def about(request):
     return render(request, 'blog/about.html')
 
+def panel_admin(request):
+    return render(request)
 
 def show_article(request, article_id):
     article = get_object_or_404(Article, id=article_id)
